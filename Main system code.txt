@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FILE DOCK</title>
+    <!-- Font: Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* Existing CSS with updated service-box colors for new buttons */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #fff;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 24px;
+        background-color: rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5),
+          inset 0 -2px 5px rgba(255, 255, 255, 0.1);
+        transform: perspective(500px) translateZ(10px);
+        position: relative;
+      }
+
+      .branding {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .branding h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .slogan {
+        margin: 0;
+        font-size: 0.75rem;
+        color: #ddd;
+        line-height: 1;
+      }
+
+      header nav a {
+        margin-left: 20px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 8px 16px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4),
+          -3px -3px 6px rgba(255, 255, 255, 0.05);
+        transform: translateZ(5px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
+      }
+
+      header nav a:hover {
+        transform: translateZ(2px) translateY(2px);
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4),
+          -1px -1px 3px rgba(255, 255, 255, 0.05);
+      }
+
+      main {
+        text-align: center;
+        padding: 60px 24px;
+        flex: 1;
+      }
+
+      main h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      main p {
+        font-size: 1rem;
+        margin-bottom: 32px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .service-boxes {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin: 20px 0;
+      }
+
+      .service-box {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
+        color: #fff;
+        padding: 10px;
+        position: relative;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .service-box i {
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+      }
+
+      .service-box:nth-child(1) {
+        background-color: #ff6b6b;
+      }
+      .service-box:nth-child(2) {
+        background-color: #4ecdc4;
+      }
+      .service-box:nth-child(3) {
+        background-color: #ffe66d;
+        color: #000;
+      }
+      .service-box:nth-child(4) {
+        background-color: #1dd1a1;
+      }
+      .service-box:nth-child(5) {
+        background-color: #f368e0;
+      }
+      .service-box:nth-child(6) {
+        background-color: #54a0ff;
+      }
+      .service-box:nth-child(7) {
+        background-color: #ff9f43;
+      }
+      .service-box:nth-child(8) {
+        background-color: #10ac84;
+      }
+      .service-box:nth-child(9) {
+        background-color: #341f97;
+      }
+      .service-box:nth-child(10) {
+        background-color: #e63946;
+      }
+      .service-box:nth-child(11) {
+        background-color: #2a9d8f;
+      }
+      .service-box:nth-child(12) {
+        background-color: #f4a261;
+      }
+      .service-box:nth-child(13) {
+        background-color: #8338ec;
+      }
+      .service-box:nth-child(14) {
+        background-color: #3a86ff;
+      }
+      .service-box:nth-child(15) {
+        background-color: #ff006e;
+      }
+      .service-box:nth-child(16) {
+        background-color: #06d6a0;
+      }
+      .service-box:nth-child(17) {
+        background-color: #f72585;
+      }
+      .service-box:nth-child(18) {
+        background-color: #118ab2;
+      }
+      .service-box:nth-child(19) {
+        background-color: #ffd166;
+        color: #000;
+      }
+      .service-box:nth-child(20) {
+        background-color: #7209b7;
+      }
+      .service-box:nth-child(21) {
+        background-color: #ef476f;
+      }
+      .service-box:nth-child(22) {
+        background-color: #073b4c;
+      }
+
+      .service-box:hover {
+        transform: translateY(-2px);
+      }
+
+      .coming-soon {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        font-size: 0.55rem;
+        font-weight: 500;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 2px 5px;
+        border-radius: 3px;
+        text-transform: uppercase;
+      }
+
+      .get-started-button {
+        padding: 12px 32px;
+        font-size: 1rem;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #4b0082;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4),
+          -3px -3px 6px rgba(255, 255, 255, 0.05);
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin-top: 20px;
+      }
+
+      .get-started-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4),
+          -1px -1px 3px rgba(255, 255, 255, 0.05);
+      }
+
+      footer {
+        text-align: center;
+        padding: 8px 16px;
+        font-size: 0.7rem;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+
+      footer a {
+        color: #fff;
+        text-decoration: underline;
+        margin: 0 4px;
+      }
+
+      @media (max-width: 600px) {
+        .service-boxes {
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .service-box {
+          width: 80px;
+          height: 90px;
+          font-size: 0.75rem;
+        }
+
+        .service-box i {
+          font-size: 1.2rem;
+        }
+
+        .coming-soon {
+          font-size: 0.5rem;
+          padding: 1px 4px;
+        }
+      }
+
+      /* MODAL STYLES (Get Started) */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        animation: slideIn 0.4s ease-out;
+      }
+
+      .modal-content {
+        background: #ffffff;
+        margin: 10% auto;
+        padding: 40px 30px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 400px;
+        color: #1a2a44;
+        position: relative;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        border: 1px solid #e0e7ff;
+      }
+
+      .modal-content h2 {
+        margin-bottom: 16px;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #1a2a44;
+      }
+
+      .security-logo {
+        display: block;
+        margin: 0 auto 16px;
+        width: 40px;
+        height: 40px;
+        color: #4b5e8e;
+      }
+
+      .modal-content button {
+        width: 100%;
+        padding: 12px;
+        background: #4b5e8e;
+        border: none;
+        border-radius: 6px;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        position: relative;
+        overflow: hidden;
+        line-height: 1.5;
+        touch-action: manipulation;
+      }
+
+      .modal-content button:hover {
+        background: #3b4a6b;
+        transform: translateY(-2px);
+      }
+
+      .modal-content button:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+      }
+
+      .modal-content button:disabled::after {
+        content: "Loading...";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        font-size: 1.5rem;
+        color: #1a2a44;
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+
+      .modal-close:hover {
+        color: #4b5e8e;
+      }
+
+      .get-started-content {
+        text-align: center;
+        font-size: 0.9rem;
+        color: #1a2a44;
+        margin-bottom: 16px;
+      }
+
+      .get-started-content a {
+        color: #4b5e8e;
+        text-decoration: underline;
+        font-weight: 600;
+      }
+
+      .get-started-content a:hover {
+        color: #3b4a6b;
+      }
+
+      .modal-footer {
+        text-align: center;
+        font-size: 0.75rem;
+        color: #6b7280;
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px solid #e0e7ff;
+      }
+
+      .contact-icon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        font-size: 2rem;
+        color: #ffffff;
+        background: #4b5e8e;
+        padding: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease;
+        z-index: 1000;
+      }
+
+      .contact-icon:hover {
+        background: #3b4a6b;
+        transform: scale(1.1);
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive adjustments for small screens */
+      @media (max-width: 400px) {
+        .modal-content {
+          padding: 24px 16px;
+          margin: 10% 4%;
+          max-width: 360px;
+        }
+
+        .modal-content h2 {
+          font-size: 1.5rem;
+          margin-bottom: 12px;
+        }
+
+        .security-logo {
+          width: 32px;
+          height: 32px;
+          margin-bottom: 12px;
+        }
+
+        .modal-content button {
+          padding: 10px;
+          font-size: 0.9rem;
+        }
+
+        .get-started-content {
+          font-size: 0.8rem;
+        }
+
+        .modal-footer {
+          font-size: 0.7rem;
+          margin-top: 12px;
+          padding-top: 10px;
+        }
+
+        .contact-icon {
+          font-size: 1.5rem;
+          padding: 10px;
+          bottom: 16px;
+          right: 16px;
+        }
+      }
+
+      /* Extra small screens (below 320px) */
+      @media (max-width: 320px) {
+        .modal-content {
+          padding: 20px 12px;
+          margin: 8% 3%;
+          max-width: 300px;
+        }
+
+        .modal-content h2 {
+          font-size: 1.3rem;
+        }
+
+        .security-logo {
+          width: 28px;
+          height: 28px;
+        }
+
+        .modal-content button {
+          padding: 8px;
+          font-size: 0.85rem;
+        }
+
+        .get-started-content {
+          font-size: 0.75rem;
+        }
+
+        .modal-footer {
+          font-size: 0.65rem;
+          margin-top: 10px;
+          padding-top: 8px;
+        }
+
+        .contact-icon {
+          font-size: 1.3rem;
+          padding: 8px;
+          bottom: 12px;
+          right: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="branding">
+        <h1>FILE DOCK</h1>
+        <p class="slogan">Your safe space for files!</p>
+      </div>
+      <nav>
+        <a id="loginBtn">Log In</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>FILE DOCK.com</h2>
+      <p>Secure, fast, and seamless file storage for your mobile life.</p>
+      <div class="service-boxes">
+        <a href="https://srhkdx-5000.csb.app/" class="service-box">
+          <i class="fas fa-file-pdf"></i><span>Merge Pdf</span>
+        </a>
+        <a href="https://2hfds8-5000.csb.app/" class="service-box">
+          <i class="fas fa-trash-alt"></i><span>Remove Pages</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-compress"></i><span>Compress Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-file-word"></i><span>Pdf to Word</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-file-excel"></i><span>Pdf to Excel</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-file-word"></i><span>Word to Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-file-image"></i><span>Pdf to Jpeg</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-lock"></i><span>Lock Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-edit"></i><span>Edit Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-unlock"></i><span>Unlock Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-sync-alt"></i><span>Rotate Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-signature"></i><span>Sign Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-stamp"></i><span>Add Watermark</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-file-export"></i><span>Extract Pages</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-file-alt"></i><span>OCR Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-globe"></i><span>Html to Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-list-ol"></i><span>Add Page Numbers</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-image"></i><span>Jpeg to Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-file-excel"></i><span>Excel to Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-file-powerpoint"></i><span>Powerpoint to Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-shield-alt"></i><span>Protect Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+        <a href="#" class="service-box">
+          <i class="fas fa-comment"></i><span>Annotate Pdf</span>
+          <span class="coming-soon">Coming Soon</span>
+        </a>
+      </div>
+      <button class="get-started-button" id="getStartedBtn">GET STARTED</button>
+    </main>
+
+    <footer>
+      © <span id="year"></span> FileDock. All rights reserved.
+      <a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a>
+    </footer>
+
+    <!-- GET STARTED MODAL -->
+    <div
+      class="modal"
+      id="getStartedModal"
+      role="dialog"
+      aria-labelledby="getStartedModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-content">
+        <span
+          class="modal-close"
+          onclick="closeModal('getStartedModal')"
+          role="button"
+          aria-label="Close modal"
+          >×</span
+        >
+        <i class="fas fa-rocket security-logo" aria-hidden="true"></i>
+        <h2 id="getStartedModalTitle">Get Started</h2>
+        <p class="get-started-content">
+          Ready to join FileDock? Click the
+          <a href="#">Log In</a> button in the top-right corner to sign in or
+          create an account. Read our <a href="#">terms and conditions</a>.
+        </p>
+        <button onclick="closeModal('getStartedModal')">Close</button>
+        <footer class="modal-footer">Powered by Cyber World</footer>
+      </div>
+    </div>
+
+    <!-- FLOATING CONTACT ICON -->
+    <i class="fas fa-envelope contact-icon" aria-label="Contact us"></i>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const getStartedBtn = document.getElementById("getStartedBtn");
+      const getStartedModal = document.getElementById("getStartedModal");
+
+      // Function to close modals
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = "none";
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      // Open Get Started modal
+      getStartedBtn.onclick = () => {
+        getStartedModal.style.display = "block";
+        getStartedModal.setAttribute("aria-hidden", "false");
+      };
+
+      // Close modals when clicking outside
+      window.onclick = function (event) {
+        if (event.target === getStartedModal) {
+          closeModal("getStartedModal");
+        }
+      };
+
+      // Handle Escape key to close modals
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          if (getStartedModal.style.display === "block") {
+            closeModal("getStartedModal");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
